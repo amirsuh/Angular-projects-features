@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+
+  </style>
+</head>
+
+<body>
+
+  <div class="signup-card">
+    <h2 class="text-center mb-4 title">Signup</h2>
+
+    <form [formGroup]="signUpForm">
+      <div class="mb-3">
+        <label>Full Name</label>
+        <input type="text" class="form-control" formControlName="fullName" placeholder="Enter your name">
+        <!-- <div class="text-danger" *ngIf="f['fullName'].touched && f['fullName'].invalid">
+          Full Name is required.
+        </div> -->
+        @if(f['fullName'].touched && f['fullName'].invalid){
+        <div>
+         {{'required' | formatPassowrdPipe}}
+        </div>
+        }
+      </div>
+
+      <div class="mb-3">
+        <label>Email</label>
+        <input type="email" class="form-control" formControlName="email" placeholder="Enter your email">
+
+        <!-- <div class="text-danger" *ngIf="f['email'].touched && f['email'].errors">
+          <span *ngIf="f['email'].errors?.['required']">Email is required.</span>
+          <span *ngIf="f['email'].errors?.['email']">Invalid email format.</span>
+        </div> -->
+        @if(f['email'].touched && f['email'].invalid){
+        @if(f['email']?.errors?.['required']){
+        <div> {{'required' | formatPassowrdPipe}}</div>
+        }
+        @if(f['email'].errors?.['email']){
+        <div>{{'valid' | formatPassowrdPipe}}</div>
+        }
+        }
+      </div>
+
+      <div class="mb-3">
+        <label>Password</label>
+        <input type="password" class="form-control" formControlName="password" placeholder="Enter password">
+        <!-- <div class="text-danger" *ngIf="f['email'].touched && f['email'].errors">
+          <span *ngIf="f['password'].errors?.['required']">password is required.</span>
+          <span *ngIf="f['password'].errors?.['pattern']">Invalid password format.</span>
+          <span *ngIf="f['password'].errors?.['minlength']">Invalid length format.</span>
+
+        </div> -->
+        @if(f['password'].touched && f['password'].invalid){
+        @if(f['password'].errors?.['required']){
+        <div> {{'required' | formatPassowrdPipe}}</div>
+        }
+        @if(f['password'].errors?.['pattern']){
+        <div> {{'pattern' | formatPassowrdPipe}}</div>
+        }
+        @if(f['password'].errors?.['minlength']){
+        <div> {{'minlength' | formatPassowrdPipe}}</div>
+        }
+        }
+        <div class="text-danger">
+        </div>
+      </div>
+
+      <div formGroupName="addressDetails">
+        <h3>Address Information</h3>
+
+        <div class="mb-3">
+          <label for="street">Street:</label>
+          <input id="street" class="form-control" formControlName="street" placeholder="Enter street">
+          <div class="text-danger" *ngIf="address['street'].touched && address['street'].invalid">
+            Street is required.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="city">City:</label>
+          <!-- City as a FormControl -->
+          <input id="city" class="form-control" formControlName="city" placeholder="Enter city">
+          <div class="text-danger" *ngIf="address['city'].touched && address['city'].invalid">
+            Street is required.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="state">State:</label>
+          <!-- State as a FormControl -->
+          <input id="state" class="form-control" formControlName="state" placeholder="Enter state">
+          <div class="text-danger" *ngIf="address['state'].touched && address['state'].invalid">
+            Street is required.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="zipCode">Zip Code:</label>
+          <input id="zipCode" class="form-control" formControlName="zipCode" placeholder="Enter zipCode">
+          <div class="text-danger" *ngIf="address['zipCode'].touched && address['zipCode'].errors">
+            <span *ngIf="address['zipCode'].errors?.['required']">Zip Code is required.</span>
+            <span *ngIf="address['zipCode'].errors?.['pattern']">Invalid zip code.</span>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary w-100 py-2 mt-2" type="button" (click)="onSubmit()"
+        [disabled]="!signUpForm.valid">Signup</button>
+
+      <div class="text-center mt-3">
+        <small>Already have an account? <a routerLink="/login">Login</a></small>
+      </div>
+    </form>
+  </div>
+
+</body>
+
+</html>
