@@ -1,0 +1,27 @@
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background: linear-gradient(180deg, #4b6cb7, #182848);
+            color: white;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .sidebar .nav-link {
+            color: #e5e5e5;
+            font-size: 17px;
+            margin: 5px 10px;
+            border-radius: 8px;
+            padding: 10px 15px;
+            transition: 0.3s;
+        }
+
+        .sidebar .nav-link:hover,
+        .sidebar .nav-link.active {
+            background: rgba(255, 255, 255, 0.18);
+            color: #fff;
+        }
