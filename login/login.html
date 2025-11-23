@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+  </style>
+</head>
+
+<body>
+
+  <div class="login-card">
+    <h2 class="text-center mb-4 title">Login</h2>
+
+        @if(toastVisible){
+      <div  class="toast" [ngClass]="toastType">
+    {{ toastMessage }}
+  </div>
+    }
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label>Email</label>
+        <input type="email" formControlName="email" class="form-control" placeholder="Enter your email"
+        [class.is-invalid]="f('email')?.errors && (f('email')?.touched || f('email')?.dirty)">
+        @if(f('email')?.errors && (f('email')?.touched||f('email')?.dirty)){
+        @if(f('email')?.errors?.['required']){
+        <p style="color: red;">Email Required</p>
+        }
+        @if(f('email')?.errors?.['email']){
+        <p style="color: red;">Email should be With @ character</p>
+        }
+        }
+      </div>
+
+      <div class="mb-3">
+        <label>Password</label>
+        <input type="password" formControlName="password" class="form-control" placeholder="Enter password"
+        [class.is-invalid]="f('password')?.errors && (f('password')?.touched || f('password')?.dirty)">
+        @if(f('password')?.errors && (f('password')?.touched || f('password')?.dirty)){
+        @if(f('password')?.errors?.['required']){
+        <p style="color: red;">Password Required</p>
+        }
+        @if(f('password')?.errors?.['minlength']){
+        <p style="color: red;">Password should contain 9 charctrers</p>
+        }
+        @if(f('password')?.errors?.['pattern']){
+        <p style="color: red;">password should be patternised</p>
+        }
+        }
+      </div>
+
+      <button class="btn btn-primary w-100 py-2 mt-2" type="submit" [disabled]="loginForm.invalid">Login</button>
+
+      <div class="text-center mt-3">
+        <small>Don't have an account? <a routerLink="/sign-up">Signup</a></small>
+      </div>
+      <div class="text-center mt-3">
+        <small>Forgot password? <a routerLink="/forgot-password">forgot Password</a></small>
+      </div>
+    </form>
+  </div>
+    <div class="toast-overlay"
+         id="toast-overlay"></div>
+</body>
+
+</html>
