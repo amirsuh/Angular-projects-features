@@ -1,0 +1,154 @@
+<main>
+  <h2>Component</h2>
+  <p>
+    Angular is totally depending on components which have been defined with @Component meta data containing
+    selector,style and view i.e HTML and imports
+  </p>
+  <h5>Component</h5>
+  <p>
+
+    A component is a fundamental building block that controls a patch of the screen called a view. It is defined by the
+    @Component() decorator and includes:
+    TypeScript Class: This class contains the application data (properties) and logic (methods), such as handling user
+    input and fetching data from a server.
+    Metadata: The @Component decorator provides configuration information to Angular, including:
+    selector: A CSS selector that tells Angular where to insert the component instance in the parent HTML (e.g.,
+    "app-root").
+    templateUrl or template: A reference to an external HTML file or an inline HTML string that defines the component's
+    UI.
+    styleUrls or styles: An array of external CSS file paths or inline CSS strings that apply styles specifically to
+    this component's view.
+    imports: (For standalone components) An array of dependencies (other components, directives, or pipes) that the
+    template uses
+  </p>
+  <h1>Angular Key Concepts</h1>
+
+
+
+
+
+
+  <div class="container mt-5">
+    <h1 class="mb-4">Angular Concepts</h1>
+
+    <!-- Nav Tabs -->
+    <ul class="nav nav-tabs" id="angularTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="binding-tab" data-bs-toggle="tab" data-bs-target="#binding" type="button"
+          role="tab">Data Binding</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="directives-tab" data-bs-toggle="tab" data-bs-target="#directives" type="button"
+          role="tab">Directives</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="infinitedirectives-tab" data-bs-toggle="tab" data-bs-target="#infinitedirectives"
+          type="button" role="tab">Infinite Directives</button>
+      </li>
+
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pipes-tab" data-bs-toggle="tab" data-bs-target="#pipes" type="button"
+          role="tab">Pipes</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="template-tab" data-bs-toggle="tab" data-bs-target="#template" type="button"
+          role="tab">Template Variables</button>
+      </li>
+    </ul>
+
+    <!-- Tab Content -->
+    <div class="tab-content mt-3" id="angularTabsContent">
+      <div class="tab-pane fade show active" id="binding" role="tabpanel" aria-labelledby="binding-tab">
+        <ul>
+          <li><strong>Data Binding:</strong> A mechanism to coordinate data between the component class and the DOM.
+          </li>
+
+          <li><strong>{{interPolation}}:</strong> {{interPolationData}}</li>
+
+          <li><strong> <input type="text" #myInputForFocus [value]="propertyBinding"></strong> (<code>[property]="..."</code>): Binds a
+            component property to an HTML element's property.</li>
+
+          <li><strong>Event Binding</strong> <button class="btn btn-primary" (click)="EventBinding()">event
+              Binding</button> (<code>(event)="..."</code>): Responds to user events (such as clicks or input changes)
+            by calling a method in the component class.</li>
+
+          <li><strong>Two-way Data Binding</strong> <input style="    width: 80%;" type="text"
+              [(ngModel)]="ngmodelData"></li>
+          <li><strong>Two-way Data Binding Value : </strong> {{ngmodelData}}</li>
+
+
+
+        </ul>
+      </div>
+
+      <div class="tab-pane fade" id="directives" role="tabpanel" aria-labelledby="directives-tab">
+        <ul>
+          <app-structural-dir></app-structural-dir>
+          <li><strong>Directives:</strong> Instructions that modify the DOM structure or behavior.</li>
+          <li><strong>Structural Directives:</strong> Alter the layout by adding, removing, or replacing elements in the
+            DOM (e.g., <code>*ngIf</code>, <code>*ngFor</code>).</li>
+          <li><strong>Attribute Directives:</strong> Alter the appearance or behavior of existing elements (e.g.,
+            <code>ngModel</code>, <code>ngStyle</code>).
+          </li>
+        </ul>
+      </div>
+      <div class="tab-pane fade" id="infinitedirectives" role="tabpanel" aria-labelledby="directives-tab">
+        <app-virtual-scroll></app-virtual-scroll>
+      </div>
+      <div class="tab-pane fade" id="pipes" role="tabpanel" aria-labelledby="pipes-tab">
+        <ul>
+          <li><strong>Pipes:</strong> <code>|</code> Format and transform data for display in the UI (e.g., currency,
+            date, or custom pipes).</li>
+          <div>
+
+            <p>{{ currentDate | date }}</p> <!-- Default format -->
+            <p>{{ currentDate | date:'short' }}</p> <!-- Short format -->
+            <p>{{ currentDate | date:'shortDate' }}</p> <!-- Short Date format -->
+            <p>{{ currentDate | date:'yyyy-MM-dd HH:mm:ss' }}</p> <!-- Custom format -->
+            <p>{{ 'hello world' | uppercase }}</p> <!-- Output: 'HELLO WORLD' -->
+
+
+            <p>{{ 'HELLO WORLD' | lowercase }}</p>
+            <p>{{ 1234.56 | currency }}</p> <!-- Output: $1,234.56 (defaults to USD) -->
+            <p>{{ 1234.56 | currency:'EUR' }}</p> <!-- Output: €1,234.56 -->
+            <p>{{ 1234.56 | currency:'GBP':'symbol' }}</p> <!-- Output: £1,234.56 -->
+            <p>{{ 1234.56789 | number:'1.0-2' }}</p> <!-- Output: 1,234.57 -->
+            <p>{{ 1234.56789 | number:'3.0-3' }}</p> <!-- Output: 1,234.568 -->
+            <p>{{ 0.25 | percent }}</p> <!-- Output: 25% -->
+            <p>{{ 0.25 | percent:'1.0-0' }}</p> <!-- Output: 25% -->
+            <p>{{ 'Angular is awesome!' | slice:0:7 }}</p> <!-- Output: 'Angular' -->
+            <p>{{ [1, 2, 3, 4, 5] | slice:2:4 }}</p> <!-- Output: [3, 4] -->
+            <p>{{ dataObservable | async }}</p>
+            <p>{{ dataObservable | async }}</p>
+            <p>{{ 5 | i18nPlural: { '=0': 'No items', '=1': 'One item', 'other': '# items' } }}</p>
+            <p>{{ 'male' | i18nSelect: { 'male': 'He', 'female': 'She' } }}</p>
+            <p>{{ 'male' | i18nSelect: { 'male': 'He', 'female': 'She' } }}</p>
+            <p>{{ 'Angular' | reverse }}</p> <!-- Output: 'ralugnA' -->
+            <p>{{ { name: 'Angular', version: 12 } }}</p> <!-- Output: { "name": "Angular", "version": 12 } -->
+
+          </div>
+
+        </ul>
+      </div>
+
+      <div class="tab-pane fade" id="template" role="tabpanel" aria-labelledby="template-tab">
+        <ul>
+          <li><strong>Template Reference Variables:</strong> <code>#variable</code> allows you to reference a DOM
+            element, component, or directive within the template.</li>
+        </ul>
+        <input #inputTemplateVar type="text">
+        <button (click)="callPhone(inputTemplateVar.value)">Call</button>
+
+        @let user = user$ | async;
+        @if (user) {
+        <p>Hello, {{ user.user }}!</p>
+        <p>Email: {{ user.email }}</p>
+        } @else {
+        <p>Loading user data...</p>
+        }
+
+        <input #nameInput type="text">
+      </div>
+    </div>
+  </div>
+</main>

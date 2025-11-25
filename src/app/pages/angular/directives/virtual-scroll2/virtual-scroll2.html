@@ -1,0 +1,18 @@
+<main>
+  <h1>Infinite Scroll Random Users</h1>
+
+<div
+  class="scrollable-container"
+  appInfiniteScroll
+  (scrolled)="loadMore()"
+  style="height: 500px; overflow-y: auto; border: 1px solid #ccc; padding: 10px;">
+
+  <div *ngFor="let user of ApiData;trackBy: trackByIndex">
+    <img [src]="user.picture.thumbnail" alt="user">
+    <span>{{ user.name.first }} {{ user.name.last }}</span>
+    <span>{{ user.email }}</span>
+  </div>
+
+  <div *ngIf="loading" class="loading">Loading...</div>
+
+  </div></main>

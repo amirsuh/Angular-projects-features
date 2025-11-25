@@ -1,0 +1,45 @@
+<section class="container mt-5">
+  <h2 class="mb-4">Mock Data List</h2>
+
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+    <!-- Loop through mockData array -->
+
+    <!-- @for(item of apiData; track item.index){ -->
+    <!-- <div appVirtualScroll [items]="apiData" [itemHeight]="40" [containerHeight]="400" > -->
+    <!-- <div appInfiniteScroll (scrolled)="loadMore()"> -->
+
+    <div class="col" *ngFor="let item of apiData; trackBy: trackByIndex;let i = index">
+      <div class="card h-100 shadow-sm" [ngClass]="i % 2 === 0 ? 'even-row':'odd-row'  ">
+        <div class="card-body">
+          <h5 class="card-title">{{ item.user.name | FormatName}}</h5>
+          <p class="card-text">
+            Email: {{ item.user.email }}<br>
+            Phone: {{ item.user.phone }}
+          </p>
+          <span> Age : {{item.user.dob.age}}</span> <span> Dob : {{item.user.dob.date | date:'dd:MM:yyyy'}}</span>
+                    <p>using if</p>
+
+          <p *ngIf="item.user.dob.age<30">
+            not yet 30
+          </p>
+          <p *ngIf="item.user.dob.age>30">
+            above 30
+          </p>
+          <span>using switch</span>
+          <div [ngSwitch]="item.user.dob.age">
+            <p *ngSwitchCase="30">Above 30</p>
+            <p *ngSwitchCase="29">Not yet 30</p>
+            <p *ngSwitchDefault>Age: {{ item.user.dob.age }}</p>
+          </div>
+        </div>
+        <div class="card-footer text-muted">
+          ID: {{ item.user.id.value ? item.user.id.value: 'NA'}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- </div> -->
+  <!-- } -->
+  <!-- </div> -->
+</section>

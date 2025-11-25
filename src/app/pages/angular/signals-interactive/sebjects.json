@@ -1,0 +1,62 @@
+[
+  {
+    "id": "course-001",
+    "title": "New Course 1",
+    "longDescription": "A detailed description of the new course. This course is designed for beginners and covers essential concepts in a structured manner.",
+    "seqNo": 100,
+    "iconUrl": "path-to-icon-1",
+    "price": 120,
+    "uploadedImageUrl": "path-to-uploaded-image-1",
+    "courseListIcon": "path-to-list-icon-1",
+    "category": "BEGINNER",
+    "lessonsCount": 5
+  },
+  {
+    "id": "course-002",
+    "title": "New Course 2",
+    "longDescription": "This course is ideal for intermediate learners looking to improve their skills. It covers advanced topics in detail.",
+    "seqNo": 101,
+    "iconUrl": "path-to-icon-2",
+    "price": 150,
+    "uploadedImageUrl": "path-to-uploaded-image-2",
+    "courseListIcon": "path-to-list-icon-2",
+    "category": "INTERMEDIATE",
+    "lessonsCount": 8
+  },
+  {
+    "id": "course-003",
+    "title": "New Course 3",
+    "longDescription": "A comprehensive course for advanced learners who want to deepen their expertise in a particular subject area.",
+    "seqNo": 102,
+    "iconUrl": "path-to-icon-3",
+    "price": 200,
+    "uploadedImageUrl": "path-to-uploaded-image-3",
+    "courseListIcon": "path-to-list-icon-3",
+    "category": "ADVANCED",
+    "lessonsCount": 10
+  },
+  {
+    "id": "course-004",
+    "title": "New Course 4",
+    "longDescription": "A beginner-friendly course focusing on foundational knowledge and practical skills for those just starting out.",
+    "seqNo": 103,
+    "iconUrl": "path-to-icon-4",
+    "price": 80,
+    "uploadedImageUrl": "path-to-uploaded-image-4",
+    "courseListIcon": "path-to-list-icon-4",
+    "category": "BEGINNER",
+    "lessonsCount": 6
+  },
+  {
+    "id": "course-005",
+    "title": "New Course 5",
+    "longDescription": "An intermediate course designed to bridge the gap between beginner and advanced concepts. Suitable for learners with some prior knowledge.",
+    "seqNo": 104,
+    "iconUrl": "path-to-icon-5",
+    "price": 135,
+    "uploadedImageUrl": "path-to-uploaded-image-5",
+    "courseListIcon": "path-to-list-icon-5",
+    "category": "INTERMEDIATE",
+    "lessonsCount": 7
+  }
+]

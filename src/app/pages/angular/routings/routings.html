@@ -1,0 +1,52 @@
+
+
+
+<main >
+
+  <!-- Nav Tabs -->
+  <ul class="nav nav-tabs" id="angularTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="binding-tab" data-bs-toggle="tab" data-bs-target="#binding" type="button" role="tab">with id</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="directives-tab" data-bs-toggle="tab" data-bs-target="#directives" type="button" role="tab">router guard</button>
+    </li>
+  </ul>
+
+  <!-- Tab Content -->
+  <div class="tab-content mt-3" id="angularTabsContent">
+
+    <!-- First Tab: Binding -->
+    <div class="tab-pane fade show active" id="binding" role="tabpanel" aria-labelledby="binding-tab">
+      <app-home></app-home>
+    </div>
+
+    <!-- Second Tab: Router Guard -->
+    <div class="tab-pane fade" id="directives" role="tabpanel" aria-labelledby="directives-tab">
+      <h2>Routing in Angular</h2>
+      <p>In a client-side web application, such as a single-page application (SPA) built with Angular, routing allows users to navigate between different views without actually loading a new HTML page from the server. Instead, the application dynamically updates the content in the browser by loading the necessary components and data based on the requested route.</p>
+      <p>Routing in Angular typically involves the following components:</p>
+      <p><strong>Routes:</strong> Routes define the mapping between the URL path and the corresponding components to be rendered. Each route is defined with a URL path and a corresponding component to be displayed when that path is accessed.</p>
+      <p><strong>Router:</strong> The router is responsible for interpreting the current URL and loading the appropriate components based on the defined routes. It listens to URL changes and handles navigation within the application.</p>
+      <p><strong>Router Outlet:</strong> The router outlet is a placeholder in the applications template where the content of the current route is rendered.</p>
+      <!-- <p><strong>Router Links and Navigation:</strong> Links and navigation elements, such as anchor tags (<a>) or buttons, are used to trigger navigation to different routes within the application. These elements can be decorated with directives like <strong>routerLink</strong> in Angular to specify the target route.</p> -->
+
+      <h3>User Details</h3>
+      <form [formGroup]="userDetailsForm" novalidate (submit)="onSubmit()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" id="name" class="form-control" [formControlName]="'name'" />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" class="form-control" [formControlName]="'email'" />
+        </div>
+        <div>
+          <input type="submit" value="Submit" class="btn btn-primary" />
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+</main>

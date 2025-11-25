@@ -1,0 +1,81 @@
+<main>
+  <div class="courses-panel">
+    <h3>All Courses:</h3>
+    <select name="" id="" class="form-control" [(ngModel)]="selectedChoice" (ngModelChange)="getCourse($event)">
+      <!-- @for(item of dropDownData;track item.id){ -->
+      <option value="">Select your option</option>
+
+      <!-- @for(data of dropDownData;track data){ -->
+      <option *ngFor="let data of dropDownData" [ngValue]="data">{{data.title}}</option>
+      <!-- } -->
+
+    </select>
+    <button class="btn btn-primary" [disabled]="!selectedValue" (click)="onAddCourse()">
+      Add Course
+    </button>
+
+    <!-- <button class="btn" (click)="onToObservableExample()">
+      toObservable()
+    </button>
+
+    <button class="btn" (click)="onToSignalExample()">
+      toSignal()
+    </button> -->
+
+    <div *ngIf="courses && courses.length > 0">
+      <h4>Course List:</h4>
+      <ul>
+        <li *ngFor="let course of courses">
+          <div>
+            <h5>{{ course.title }}</h5>
+            <p>{{ course.longDescription }}</p>
+            <span>Category: {{ course.category }}</span>
+            <span>Price: {{ course.price | currency }}</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <button class="btn btn-primary" (click)="increment()">+</button>
+  {{counter()}}
+  <button class="btn btn-danger" (click)="decrement()">-</button>
+  <div class="cart">
+    <h2>Shopping Cart</h2>
+    <div *ngFor="let item of cartItems()">
+      <span>{{ item.name }}</span>
+      <span>{{ item.price | currency }}</span>
+      <input type="number" [value]="item.quantity" (change)="updateQuantity(item.id, $event)">
+      <input type="number" [value]="item.price" (change)="updatePrice(item.id, $event)">
+    </div>
+    <div class="total">
+      Total: {{ totalAmount() | currency }}
+    </div>
+
+    <!-- <button (click)="addNewProduct()">add new Product</button> -->
+  </div>
+
+  <div class="counter-container">
+<form [formGroup]="form" >
+  <div formArrayName="items">
+    <div *ngFor="let item of items.controls;let i=index" [formGroupName]="i">
+      <label for="name">name</label>
+      <input type="text" formControlName="name">
+       <label for="price">price</label>
+      <input type="text" formControlName="price">
+        <label for="quantity">quantity</label>
+      <input type="text" formControlName="quantity">
+
+      <div *ngIf="item.invalid &&(item.touched || item.dirty)">
+        <small *ngIf="item.get('price')?.invalid">Price must be a positive number.</small>
+        <small *ngIf="item.get('quantity')?.invalid">Price must be a positive number.</small>
+      </div>
+    </div>
+    <button type="button" (click)="addNewProduct()">Add Item</button>
+
+    <button type="submit" [disabled]="form.invalid" (click)="addCartItem()">Submit</button>
+  </div>
+
+</form>
+</div>
+</main>
