@@ -1,0 +1,38 @@
+<main>
+  <p>State Managemnet using ngrx</p>
+
+  <div>
+    <div>
+      <h1>{{count$ | async}}</h1>
+      <button class="btn btn-primary" (click)="increse()">+</button>
+      <button class="btn btn-danger" (click)="decrese()">-</button>
+    </div>
+
+    <h1>{{user$ | async | json }}</h1>
+    <button class="btn btn-primary" (click)="setName()">set Name</button>
+  </div>
+
+{{tasks$ | async | json}}
+  <div *ngFor="let task of tasks$ | async" class="task">
+  <h3>{{ task.title }}</h3>
+  <p>{{ task.description }}</p>
+  <button (click)="updateTask(task)">Update</button>
+  <button (click)="deleteTask(task.id)">Delete</button>
+</div>
+<button (click)="addNewTask()">Add New Task</button>
+
+
+<div *ngIf="loading$ | async">Loading...</div>
+<div *ngIf="error$ | async as e">Error: {{ e }}</div>
+
+<input [(ngModel)]="newTitle" placeholder="Add todo">
+<button (click)="addTodo()">Add</button>
+
+<ul>
+  <li *ngFor="let t of (todos$ | async)">
+    <input type="checkbox" [checked]="t.completed" (change)="toggle(t)">
+    {{ t.title }}
+    <button (click)="delete(t.id)">Delete</button>
+  </li>
+</ul>
+</main>

@@ -4,6 +4,8 @@ import { catchError, from } from 'rxjs';
 import { Mockdataservice } from '../../../core/services/mock/mockdataservice';
 import { CommonModule } from '@angular/common';
 import { FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { increment } from '../../../shared/store/action';
 
 // Types for Course and CourseCategory
 export type CourseCategory = 'BEGINNER' | 'INTERMEDIATE' | 'ADVANCED';
@@ -110,6 +112,8 @@ export class SignalsInteractive {
   ]);
   form: FormGroup;
  currentId: number = 1;
+ store = inject(Store)
+ public count$ = this.store.select('count')
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
       items: this.fb.array([]), // FormArray to hold dynamic form groups
@@ -170,6 +174,7 @@ export class SignalsInteractive {
 
   increment() {
     this.counter.update((currentValue) => currentValue + 1);
+    this.store.dispatch(increment())
   }
   decrement() {
     this.counter.update((currentValue) => currentValue - 1);

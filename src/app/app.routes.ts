@@ -18,6 +18,7 @@ import { Product } from './pages/product/product/product';
 import { Productoffer } from './pages/product/productoffer/productoffer';
 import { Productupdate } from './pages/product/productupdate/productupdate';
 import { Home } from './pages/product/home/home';
+import { StateManagement } from './pages/angular/state/state-management/state-management';
 
 export const routes: Routes = [
   {
@@ -34,6 +35,8 @@ export const routes: Routes = [
       { path: 'angular/standalone', component: Standalonecomp },
       { path: 'angular/signals', component: SignalsInteractive },
       { path: 'angular/routing', component: Routings, canDeactivate: [myDeactivateGuard] },
+      { path: 'angular/state-management', component: StateManagement },
+
       {
     path: 'about',
     component: About,

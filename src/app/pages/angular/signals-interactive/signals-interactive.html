@@ -39,6 +39,7 @@
 
   <button class="btn btn-primary" (click)="increment()">+</button>
   {{counter()}}
+  {{count$ | async}}
   <button class="btn btn-danger" (click)="decrement()">-</button>
   <div class="cart">
     <h2>Shopping Cart</h2>
