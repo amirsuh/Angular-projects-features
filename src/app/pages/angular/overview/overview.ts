@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Hotelroom } from "./hotelroom/hotelroom";
+import { Host } from "../dynamic/host/host";
 export interface HotelDetail{
   name:string,
   city:string,
@@ -9,7 +10,7 @@ export interface HotelDetail{
 }
 @Component({
   selector: 'app-overview',
-  imports: [Hotelroom],
+  imports: [Hotelroom, Host,],
   templateUrl: './overview.html',
   styleUrl: './overview.scss',
 })

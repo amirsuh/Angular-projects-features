@@ -89,6 +89,9 @@
             ],
             "styles": [
               "src/styles.scss"
+            ],
+            "scripts": [
+              "./src/assets/js/myscript.js"
             ]
           }
         }

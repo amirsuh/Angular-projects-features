@@ -21,3 +21,9 @@ describe('StateManagement', () => {
     expect(component).toBeTruthy();
   });
 });
+
+describe('Calculate',()=>{
+  it('add numbers',()=>{
+   expect(1+2).toBe(3);
+  })
+})
