@@ -3,7 +3,7 @@
   <h3 class="text-center fw-bold mb-4">⚡ Admin</h3>
 
   <nav class="nav flex-column">
-    @for(item of menuItems;track item.id){
+    @for(item of menuItems;track item){
 
     <a class="nav-link" [routerLink]="item.route" [class.active]="isActive(item)">
 

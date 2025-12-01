@@ -19,6 +19,7 @@ import { Productoffer } from './pages/product/productoffer/productoffer';
 import { Productupdate } from './pages/product/productupdate/productupdate';
 import { Home } from './pages/product/home/home';
 import { StateManagement } from './pages/angular/state/state-management/state-management';
+import { RxjsMastery } from './pages/angular/rxjs-mastery/rxjs-mastery';
 
 export const routes: Routes = [
   {
@@ -36,24 +37,25 @@ export const routes: Routes = [
       { path: 'angular/signals', component: SignalsInteractive },
       { path: 'angular/routing', component: Routings, canDeactivate: [myDeactivateGuard] },
       { path: 'angular/state-management', component: StateManagement },
-
+      { path: 'angular/rxjs', component: RxjsMastery },
       {
-    path: 'about',
-    component: About,
-    children: [
-      { path: 'rating', outlet: 'rate', component: Rating },
-      { path: 'feedback', outlet: 'feed', component: Feedback },
-    ],
-  },
-  { path: 'home', component: Home },
-  {
-    path: 'product/:id', component: Product,
-    children: [
-      {path: '', redirectTo:'updates', pathMatch:'full'},
-      { path: 'offers', component: Productoffer },
-      { path: 'updates', component: Productupdate }
-    ]
-  },
+        path: 'about',
+        component: About,
+        children: [
+          { path: 'rating', outlet: 'rate', component: Rating },
+          { path: 'feedback', outlet: 'feed', component: Feedback },
+        ],
+      },
+      { path: 'home', component: Home },
+      {
+        path: 'product/:id',
+        component: Product,
+        children: [
+          { path: '', redirectTo: 'updates', pathMatch: 'full' },
+          { path: 'offers', component: Productoffer },
+          { path: 'updates', component: Productupdate },
+        ],
+      },
     ],
   },
 

@@ -1,4 +1,4 @@
-import { Component, signal, Injector, inject, effect, computed } from '@angular/core';
+import { Component, signal, Injector, inject, effect, computed, OnInit } from '@angular/core';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { catchError, from } from 'rxjs';
 import { Mockdataservice } from '../../../core/services/mock/mockdataservice';
@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { increment } from '../../../shared/store/action';
+import { Task } from '../../../shared/interfaces/task.model';
 
 // Types for Course and CourseCategory
 export type CourseCategory = 'BEGINNER' | 'INTERMEDIATE' | 'ADVANCED';
@@ -38,7 +39,7 @@ interface CartItem {
   imports: [CommonModule, FormsModule,ReactiveFormsModule],
   styleUrl: './signals-interactive.scss',
 })
-export class SignalsInteractive {
+export class SignalsInteractive implements OnInit{
   dropDownData: Course[] = [
     {
       id: 'course-001',
@@ -114,11 +115,22 @@ export class SignalsInteractive {
  currentId: number = 1;
  store = inject(Store)
  public count$ = this.store.select('count')
+  tasks = signal<Task[]>([])
+  coumputed = computed(()=>this.tasks().length)
+  // doneCount = computed(()=>this.tasks().filter(it=>it.done).length)
+
+
+
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
       items: this.fb.array([]), // FormArray to hold dynamic form groups
     });
   }
+
+  async ngOnInit() {
+    // this.tasks().at(await fetchTasks())
+  }
+
 
   totalAmount = computed(() => {
     return this.cartItems().reduce((total, item) => total + item.price * item.quantity, 0);
