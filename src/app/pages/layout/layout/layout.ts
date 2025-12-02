@@ -3,6 +3,7 @@ import { Header } from "./header/header";
 import { Sidebar } from "./sidebar/sidebar";
 import { Footer } from "./footer/footer";
 import { RouterOutlet } from "@angular/router";
+import { Master } from '../../../core/services/master';
 
 @Component({
   selector: 'app-layout',

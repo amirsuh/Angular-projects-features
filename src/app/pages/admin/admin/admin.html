@@ -1,0 +1,20 @@
+<main>
+  <p>admin working</p>
+  <h1>
+{{currcounter}}
+</h1>
+  <h1>admin page</h1>
+  <span>{{firstName}}</span>
+  <button (click)="isDiviVisible=!isDiviVisible">show</button>
+  @if(isDiviVisible){
+  <div class="row">
+    <div class="col-md-6">
+      <app-data-binding></app-data-binding>
+    </div>
+    <div class="col-md-6">
+      <app-data-hiding></app-data-hiding>
+    </div>
+  </div>
+  }
+
+</main>

@@ -20,6 +20,7 @@ import { Productupdate } from './pages/product/productupdate/productupdate';
 import { Home } from './pages/product/home/home';
 import { StateManagement } from './pages/angular/state/state-management/state-management';
 import { RxjsMastery } from './pages/angular/rxjs-mastery/rxjs-mastery';
+import { Admin } from './pages/admin/admin/admin';
 
 export const routes: Routes = [
   {
@@ -38,6 +39,8 @@ export const routes: Routes = [
       { path: 'angular/routing', component: Routings, canDeactivate: [myDeactivateGuard] },
       { path: 'angular/state-management', component: StateManagement },
       { path: 'angular/rxjs', component: RxjsMastery },
+      { path: 'admin', component: Admin },
+
       {
         path: 'about',
         component: About,

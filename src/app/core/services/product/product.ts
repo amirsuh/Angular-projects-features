@@ -14,4 +14,10 @@ export class productService {
   getProductDetailById(id: number) {
     return this.service.get('https://fakestoreapi.com/products/' + id);
   }
+  getdataWithFetch(){
+    return fetch("https://fakestoreapi.com/products")
+  }
+    getdataWithFetch2(){
+    return fetch("https://fakestoreapi.com/productsasds")
+  }
 }

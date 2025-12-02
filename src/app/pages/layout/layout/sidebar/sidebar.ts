@@ -19,6 +19,13 @@ export class Sidebar {
         description: 'High-level understanding of Angular architecture, features, and ecosystem.',
         id: 1,
       },
+       {
+        label: 'Admin',
+        icon: 'fas fa-info-circle',
+        route: '/admin',
+        description: 'Angular architecture, features, and ecosystem.',
+        id: 1,
+      },
       {
         label: 'Angular Overview',
         icon: 'fas fa-info-circle',
